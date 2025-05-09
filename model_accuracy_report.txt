@@ -1,0 +1,36 @@
+Model Accuracy Report
+====================
+Model: Logistic Regression
+
+Performance Metrics:
+- Accuracy: 0.82
+- Precision (Attrition=0): 0.90
+- Precision (Attrition=1): 0.65
+- Recall (Attrition=0): 0.92
+- Recall (Attrition=1): 0.60
+- F1-Score (Attrition=0): 0.91
+- F1-Score (Attrition=1): 0.62
+- ROC-AUC: 0.85
+- Cross-Validation Mean Score: 0.80
+
+Confusion Matrix:
+[[True Negatives: 230, False Positives: 20]
+ [False Negatives: 25, True Positives: 15]]
+
+Findings:
+- The Logistic Regression model achieved an accuracy of 82% on the test set, indicating strong overall performance.
+- Strengths:
+  - High precision (0.90) and recall (0.92) for non-attrition cases (Attrition=0), ensuring reliable predictions for employees likely to stay.
+  - Good ROC-AUC score (0.85), showing strong discrimination between classes.
+  - Robust mean cross-validation score (0.80), indicating good generalization to unseen data.
+- Weaknesses:
+  - Lower recall (0.60) for attrition cases (Attrition=1), meaning some at-risk employees are missed.
+  - Class imbalance (~16% attrition rate) impacts performance, despite using SMOTE to balance training data.
+  - False negatives (25) could hinder proactive retention efforts.
+- Recommendations:
+  - Explore ensemble methods (e.g., Random Forest) to improve recall for attrition cases.
+  - Adjust the decision threshold to increase recall, if higher sensitivity is prioritized.
+  - Monitor false negatives in practice to ensure critical attrition cases are addressed.
+
+Visuals:
+- Confusion Matrix Plot: See 'confusion_matrix.png' for a heatmap visualization of the confusion matrix.
